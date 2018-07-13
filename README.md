@@ -47,7 +47,7 @@ You will need to clone this repository so you can leverage the training image da
 
 * Open a command line interface (CLI) on your desktop and clone this repo (you can install Git [here](https://git-scm.com/downloads)): 
 ```
-git clone https://github.com/IBM/Predictive-Industrial-Visual-Analysis
+git clone https://github.com/lrodrig-ibm/dte-industrial-visual-analysis
 ```
 
 Create the [Watson Visual Recognition](https://www.ibm.com/watson/services/visual-recognition/) service in IBM Cloud. You will be able to find the service in the IBM Cloud Catalog under AI.
@@ -75,12 +75,12 @@ https://www.ibm.com/cloud/garage/demo/try-watson-visual-recognition/
 ------TO BE REMOVED BELOW--------
 * Open a command line interface (CLI) on your desktop and clone this repo:
 ```
-git clone https://github.com/IBM/Predictive-Industrial-Visual-Analysis
+git clone https://github.com/lrodrig-ibm/dte-industrial-visual-analysis
 ```
 
 * Go to the folder where the images are placed
 ```
-cd Predictive-Industrial-Visual-Analysis/vr-image-training-data
+cd Industrial-Visual-Analysis/vr-image-training-data
 ```
 
 Here we will create a classifier using the zipped images to train the Watson Visual-Recognition service. The images in each zipped folder are used to make the Watson VR service become familiar with the images that relate to the different categories (Corrosion, Leak, etc.). Run the following command to submit all 6 sets of images to the Watson service classifier:
@@ -179,7 +179,7 @@ Now that you have a working local web application, let's push the app to the IBM
 
 #### Deploy to IBM Cloud
 
-[![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/Predictive-Industrial-Visual-Analysis)
+[![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/lrodrig-ibm/dte-industrial-visual-analysis)
 
 You can push the app to IBM Cloud by first editing the ```manifest file``` file and then using cloud foundry cli commands.
 
@@ -275,4 +275,3 @@ bx app logs <application-name> --recent
 # License
 
 [Apache 2.0](LICENSE)
-# industrial-visual-analysis-dte
