@@ -119,7 +119,8 @@ Click on the ``here`` link provided in the message.
 </p>
 
 You will now be able to see the details on your custom model. 
-You will see a ``Model ID`` for your model. SAVE THIS FOR FUTURE STEPS!
+You will see a ``Model ID`` for your model. 
+SAVE THIS FOR FUTURE STEPS!
 
 <p align="center">
 <img width="800"  src="readme_images\ws-viewcustommodel.png">
