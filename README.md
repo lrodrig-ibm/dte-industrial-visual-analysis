@@ -115,7 +115,7 @@ Your model training was successful. Click here to view and test your model.
 Click on the ``here`` link provided in the message.
 
 <p align="center">
-<img width="800"  src="readme_images\ws-trainingcompleted.png">
+<img width="800"  src="readme_images\ws-trainingcomplete.png">
 </p>
 
 You will now be able to see the details on your custom model. 
@@ -304,4 +304,3 @@ ibmcloud app logs <application-name> --recent
 # License
 
 [Apache 2.0](LICENSE)
-# industrial-visual-analysis-dte
