@@ -1,7 +1,9 @@
 **__Skill Level__**: Beginner
 <br>**__N.B__**: All services used in this repo are Lite plans.
 
-# [Industrial Visual Analysis]
+See working DTE Asset Demo [here](http://industrial-visual-analysis-dte.mybluemix.net)
+
+# Industrial Visual Analysis
 
 In this code pattern, we will identify industrial equipment for various damages upon visual inspection by using machine learning classification techniques.  Using Watson Visual Recognition, we will analyze the image against a trained classifier to inspect oil and gas pipelines with six identifiers - Normal, Burst, Corrosion, Damaged Coating, Joint Failure and Leak. For each image we will provide a percent match with each of the categories on how closely the image matches one of the damaged identifiers or the Normal identifier.  This data can then be used to create a dashboard to the pipelines needing immediate attention to no attention.
 
@@ -63,38 +65,65 @@ You will need to copy the ``API Key`` to use it later.
 <img width="800"  src="readme_images\vr_apikey.png">
 </p>
 
-As shown above, there will also be a ``Launch Tool`` button that will launch Watson Studio where you will be able to train your own custom Visual Recognition model.
+As shown above, there will also be a ``Launch Tool`` button that will launch Watson Studio where you will be able to train your own custom Visual Recognition model. 
+Click the Launch tool button.
 
+Watson Studio will show you the current models built into the Watson Visual Recognition service such as the General model, Face mode, etc.
+Select the ``Create Model`` button to create your own custom visual recognition model.
 
+<p align="center">
+<img width="800"  src="readme_images\ws-createmodel.png">
+</p>
 
+A project will be created for your custom model.
+Use ``Industrial Visual Analysis Custom Model`` as your project name.
 
-Next Step: NEW TO BE UPDATED: Follow instruction from here: https://youtu.be/3ArhBQ_QxkM
-https://www.ibm.com/cloud/garage/demo/try-watson-visual-recognition/
+<p align="center">
+<img width="800"  src="readme_images\ws-newproject.png">
+</p>
 
+Scroll down to the ``Define Watson Visual Recognition`` and associate your existing Visual Recognition service to this project.
 
-------TO BE REMOVED BELOW--------
-* Open a command line interface (CLI) on your desktop and clone this repo:
+<p align="center">
+<img width="800"  src="readme_images\ws-newproject-vr.png">
+</p>
+
+Select ``Create``
+
+To train your custom model, you will need to upload the training data that is part of this github repository. Select the ``Browse``button on the right and select the 6 zip files containing the training image data which is found in this github repo under ``vr-image-training-data``.  
+After the zip files have been uploaded, select all the zip files and then click on  ``Add to Model `` to add the files to the model that will be training.
+
+<p align="center">
+<img width="800"  src="readme_images\ws-adddatasets.png">
+</p>
+
+When the models have been added, select   ``Train Model ``.
+
+<p align="center">
+<img width="800"  src="readme_images\ws-starttraining.png">
+</p>
+
+You will see a message that says:
 ```
-git clone https://github.com/lrodrig-ibm/dte-industrial-visual-analysis
+Model training started. You will not be able to make changes while this is in progress. We'll notify you once training is complete.
 ```
 
-* Go to the folder where the images are placed
+When the training has completed, you will see a message that says:
 ```
-cd Industrial-Visual-Analysis/vr-image-training-data
+Your model training was successful. Click here to view and test your model.
 ```
+Click on the ``here`` link provided in the message.
 
-Here we will create a classifier using the zipped images to train the Watson Visual-Recognition service. The images in each zipped folder are used to make the Watson VR service become familiar with the images that relate to the different categories (Corrosion, Leak, etc.). Run the following command to submit all 6 sets of images to the Watson service classifier:
+<p align="center">
+<img width="800"  src="readme_images\ws-trainingcompleted.png">
+</p>
 
-```
-curl -X POST -u "apikey:{INSERT-YOUR-IAM-APIKEY-HERE}" -F "Bursted_Pipe_positive_examples=@Burst_Images.zip" -F "Corroded_Pipe_positive_examples=@Corrosion_Images.zip" -F "Damaged_Coating_positive_examples=@Damaged_Coating_Images.zip" -F "Joint_Failure_positive_examples=@Joint_Failure_Images.zip" -F "Pipe_Leak_positive_examples=@Leak_Images.zip" -F "Normal_Condition_positive_examples=@Normal_Condition.zip" -F "name=OilPipeCondition" "https://gateway.watsonplatform.net/visual-recognition/api/v3/classifiers?version=2018-03-19"
-```
+You will now be able to see the details on your custom model. 
+You will see a ``Model ID`` for your model. SAVE THIS FOR FUTURE STEPS!
 
-The response from above will provide you with a status on the submission and will give you a `CLASSIFIER_ID`. Please copy this for future use as well. After executing the above command, you can view the status of your Watson service and whether it has finished training on the images you submitted. You can check the status like this:
-
-```
-curl -X GET -u "apikey:{INSERT-YOUR-IAM-APIKEY-HERE}"  "https://gateway.watsonplatform.net/visual-recognition/api/v3/classifiers/{INSERT-CLASSIFIER-ID-HERE}?api_key={INSERT-API-KEY-HERE}&version=2018-03-19"
-```
----------TO BE REMOVED ABOVE-------
+<p align="center">
+<img width="800"  src="readme_images\ws-viewcustommodel.png">
+</p>
 
 You can find more information on working with your classifier [here](https://console.bluemix.net/docs/services/visual-recognition/tutorial-custom-classifier.html#creating-a-custom-classifier)
 
@@ -151,7 +180,7 @@ CLOUDANT_DB=image_db
 #From Watson Visual Recognition Service
 VR_KEY=
 VR_URL=
-VR_CLASSIFIERS=OilPipeCondition_1063693116 (REPLACE WITH YOUR CLASSIFIER NAME)
+VR_CLASSIFIERS=OilPipeCondition_106369316 (REPLACE WITH YOUR CUSTOM MODEL ID NAME)
 
 ```
 
@@ -179,7 +208,7 @@ Now that you have a working local web application, let's push the app to the IBM
 
 #### Deploy to IBM Cloud
 
-[![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/lrodrig-ibm/dte-industrial-visual-analysis)
+[![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://github.com/lrodrig-ibm/dte-industrial-visual-analysis)
 
 You can push the app to IBM Cloud by first editing the ```manifest file``` file and then using cloud foundry cli commands.
 
@@ -210,7 +239,7 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: industrial-visual-analysis-lr
+  name: {your-industrial-visual-analysis-app-name}
   disk_quota: 1024M
   services:
   - my-cloudant-service
@@ -258,7 +287,7 @@ The app has the following functions:
 To troubleshoot your IBM Cloud application, use the logs. To see the logs, run:
 
 ```bash
-bx app logs <application-name> --recent
+ibmcloud app logs <application-name> --recent
 ```
 
 ## <h2>Learn more</h2>
@@ -275,3 +304,4 @@ bx app logs <application-name> --recent
 # License
 
 [Apache 2.0](LICENSE)
+# industrial-visual-analysis-dte

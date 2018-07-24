@@ -71,6 +71,7 @@ function myFunction(value) {
 }
 
 function uploadFile(node) {
+    showLoadingMessage();
     //console.log("NODE IS : " + node);
     //console.log(node);
     //console.log("NODE VALUE IS: " + node.src);
@@ -126,11 +127,15 @@ function uploadFile(node) {
     console.log("SENDING DATA TO ATTACH");
     xhrAttach(REST_DATA + "/attachsimple?" + queryParams, form, function(item) {
                 console.log("finished sending image");
+                stopLoadingMessage();
+                alert("Your image has been submitted to Watson!");
+                window.location.href="./";
                 //console.log('Item id - ' + item.id);
                 //console.log('attached: ', item);
                 //row.setAttribute('data-id', item.id);
                 //removeProgressIndicator(row);
                 //setRowContent(item, row);
+              
               }, function(err) {
                 console.error(err);
               });

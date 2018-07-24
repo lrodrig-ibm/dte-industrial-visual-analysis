@@ -396,7 +396,7 @@ app.get('/needimmediateattention', function (req, res) {
     		if(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[0].score > 0.60 ||
     			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[1].score > 0.60 ||
     			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[2].score > 0.60 ||
-    			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[4].score > 0.60
+    			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[3].score > 0.60
     			//class[3] is Normal Condition, not needed here
     		) {
     			filtered_body.rows.push(body.rows[i]);
@@ -434,8 +434,8 @@ app.get('/mayneedattention', function (req, res) {
     			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[1].score < 0.60) ||
     			(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[2].score > 0.40 &&
     			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[2].score < 0.60) ||
-    			(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[4].score > 0.40 &&
-    			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[4].score < 0.60)
+    			(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[3].score > 0.40 &&
+    			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[3].score < 0.60)
     			//class[3] is Normal Condition, not needed here
     		) {
     			filtered_body.rows.push(body.rows[i]);
@@ -469,7 +469,7 @@ app.get('/doesnotneedattention', function (req, res) {
     		if(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[0].score < 0.40 &&
     			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[1].score < 0.40 &&
     			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[2].score < 0.40 &&
-    			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[4].score < 0.40
+    			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[3].score < 0.40
     			//class[3] is Normal Condition, not needed here
     		) {
     			filtered_body.rows.push(body.rows[i]);
@@ -525,7 +525,7 @@ app.get('/', function (req, res) {
         		if(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[0].score < 0.40 &&
         			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[1].score < 0.40 &&
         			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[2].score < 0.40 &&
-        			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[4].score < 0.40 ) {
+        			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[3].score < 0.40 ) {
       			     green_count++;
       		  }
           }
@@ -541,8 +541,8 @@ app.get('/', function (req, res) {
         			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[1].score < 0.60) ||
         			(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[2].score > 0.40 &&
         			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[2].score < 0.60) ||
-        			(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[4].score > 0.40 &&
-        			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[4].score < 0.60)) {
+        			(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[3].score > 0.40 &&
+        			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[3].score < 0.60)) {
       			       yellow_count++;
             }
           }
@@ -555,7 +555,7 @@ app.get('/', function (req, res) {
         		if(body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[0].score > 0.60 ||
         			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[1].score > 0.60 ||
         			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[2].score > 0.60 ||
-        			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[4].score > 0.60 ) {
+        			body.rows[i].key.analysis.image_classify.images[0].classifiers[0].classes[3].score > 0.60 ) {
       			       red_count++;
       		  }
           }
