@@ -90,6 +90,8 @@ Scroll down to the ``Define Watson Visual Recognition`` and associate your exist
 
 Select ``Create``
 
+Optional Step: The custom model will have a default name of ``Default Custom Model`` . You can choose to name your model something else by selecting the pencil icon next to the model name and using a model name such as Oil Pipeline Model. 
+
 To train your custom model, you will need to upload the training data that is part of this github repository. Select the ``Browse``button on the right and select the 6 zip files containing the training image data which is found in this github repo under ``vr-image-training-data``.  
 After the zip files have been uploaded, select all the zip files and then click on  ``Add to Model `` to add the files to the model that will be training.
 
@@ -115,7 +117,7 @@ Your model training was successful. Click here to view and test your model.
 Click on the ``here`` link provided in the message.
 
 <p align="center">
-<img width="800"  src="readme_images\ws-trainingcomplete.png">
+<img width="800"  src="readme_images\ws-trainingcompleted.png">
 </p>
 
 You will now be able to see the details on your custom model. 
@@ -305,3 +307,4 @@ ibmcloud app logs <application-name> --recent
 # License
 
 [Apache 2.0](LICENSE)
+# industrial-visual-analysis-dte

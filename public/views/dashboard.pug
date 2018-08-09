@@ -113,8 +113,9 @@ div
 								else
 									tr
 										td
-											a(href="./" + row.id)= row.id
-										td YES
+											a(href="./" + row.id)
+												img(src="/public/images/" + row.key.name class="lazy" style="max-width:100%; width:100%; max-width: 120px; max-height:120px;")
+										td Yes
 										td= row.key.timestamp										
 										td= row.key.aircraft
 

@@ -682,7 +682,7 @@ app.post('/api/favorites/attachsimple', multipartMiddleware, function(request, r
                 isExistingDoc = true;
                 }
                 
-                var name = sanitizeInput("");
+                var name = sanitizeInput(request.query.name);
                 var value = sanitizeInput("");
                 
                 //var file = request.files.file;

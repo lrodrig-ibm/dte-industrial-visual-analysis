@@ -106,7 +106,7 @@ function uploadFile(node) {
     //var queryParams = "id=" + 1234;
     //queryParams += "&name=" + "myfilename";
     //queryParams += "&value=" + "myfilevalue";
-    queryParams += "&name=" + "name";
+    queryParams += "&name=" + node;
     queryParams += "&value=" + "value";
     queryParams += "&filepath=" + node;
 
