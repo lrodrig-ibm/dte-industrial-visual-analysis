@@ -5,7 +5,7 @@ See working DTE Asset Demo [here](http://industrial-visual-analysis-dte.mybluemi
 
 # Industrial Visual Analysis
 
-In this code pattern, we will identify industrial equipment for various damages upon visual inspection by using machine learning classification techniques.  Using Watson Visual Recognition, we will analyze the image against a trained classifier to inspect oil and gas pipelines with six identifiers - Normal, Burst, Corrosion, Damaged Coating, Joint Failure and Leak. For each image we will provide a percent matchf with each of the categories on how closely the image matches one of the damaged identifiers or the Normal identifier.  This data can then be used to create a dashboard to the pipelines needing immediate attention to no attention.
+In this code pattern, we will identify industrial equipment for various damages upon visual inspection by using machine learning classification techniques.  Using Watson Visual Recognition, we will analyze the image against a trained classifier to inspect oil and gas pipelines with six identifiers - Normal, Burst, Corrosion, Damaged Coating, Joint Failure and Leak. For each image we will provide a percent match with each of the categories on how closely the image matches one of the damaged identifiers or the Normal identifier.  This data can then be used to create a dashboard to the pipelines needing immediate attention to no attention.
 
 The image data is stored in a Cloudant database which makes it easier to connect remote devices (including drones) to capture images. The database can store different properties of the images like location and description.  This code pattern demonstrates a NodeJS application that is notified when an image is added to the Cloudant database. The application performs the Visual Recognition analysis and updates the Cloudant database with the analysis data.
 
@@ -121,14 +121,23 @@ Click on the ``here`` link provided in the message.
 </p>
 
 You will now be able to see the details on your custom model. 
-You will see a ``Model ID`` for your model. 
+You will see a ``Model ID`` for your model.
 SAVE THIS FOR FUTURE STEPS!
 
 <p align="center">
 <img width="800"  src="readme_images\ws-viewcustommodel.png">
 </p>
 
+You can test your model directly from Watson Studio by selecting the ``Test``  tab. You will then be able to browse your local files and submit an image to be classified. 
+Select a sample image provided in this github repo in the ``vr-image-test-data``  folder.
+
+<p align="center">
+<img width="800"  src="readme_images\ws-testmodel.png">
+</p>
+
 You can find more information on working with your classifier [here](https://console.bluemix.net/docs/services/visual-recognition/tutorial-custom-classifier.html#creating-a-custom-classifier)
+
+Now that you have confirmed the custom model is working as expected, you are ready for the next step.
 
 ## 2. Cloudant NoSQL DB Setup
 
