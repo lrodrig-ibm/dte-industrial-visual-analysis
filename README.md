@@ -232,30 +232,8 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: {industrial-visual-analysis}
-  disk_quota: 1024M
-  services:
-  - {cloudant}
-  - {visual-recognition}
-  
-  
-  declared-services:
-  my-cloudant-service:
-  label: cloudantNoSQLDB
-  plan: Lite
-  my-visual-recognition-service:
-  label: watson_vision_combined
-  plan: free
-  applications:
-  - path: .
-  memory: 256M
-  instances: 1
-  domain: mybluemix.net
   name: {your-industrial-visual-analysis-app-name}
   disk_quota: 1024M
-  services:
-  - my-cloudant-service
-  - my-visual-recognition-service
 ```
 
 You will need to download the IBM Cloud Command Line Interface (CLI) to push your local app to the cloud. 
